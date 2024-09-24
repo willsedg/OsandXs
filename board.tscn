@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://e7mc1aklgqih"]
+
+[ext_resource type="Texture2D" uid="uid://cod4altul6sdt" path="res://Resources/Grid.png" id="1_11kei"]
+[ext_resource type="Script" path="res://board.gd" id="1_j883x"]
+[ext_resource type="PackedScene" uid="uid://ch251pp426wcs" path="res://square.tscn" id="2_oegpm"]
+
+[node name="Board" type="Node2D"]
+position = Vector2(164, 164)
+script = ExtResource("1_j883x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 1)
+texture = ExtResource("1_11kei")
+
+[node name="Squares" type="Node2D" parent="."]
+
+[node name="Square" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-158, -157)
+
+[node name="Square2" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-36, -157)
+column = 1
+
+[node name="Square3" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(75, -157)
+column = 2
+
+[node name="Square4" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-151, -39)
+row = 1
+
+[node name="Square5" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-41, -40)
+column = 1
+row = 1
+
+[node name="Square6" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(72, -38)
+column = 2
+row = 1
+
+[node name="Square7" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-156, 75)
+row = 2
+
+[node name="Square8" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(-41, 77)
+column = 1
+row = 2
+
+[node name="Square9" parent="Squares" instance=ExtResource("2_oegpm")]
+position = Vector2(72, 79)
+column = 2
+row = 2

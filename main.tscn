@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmyom66ix8jge"]
+
+[ext_resource type="Texture2D" uid="uid://m1r4vuia1naa" path="res://Resources/1.png" id="1_l5uu6"]
+[ext_resource type="Script" path="res://main.gd" id="1_lr4ku"]
+[ext_resource type="PackedScene" uid="uid://b6lihb7soa3g6" path="res://overlay.tscn" id="2_5tomt"]
+[ext_resource type="PackedScene" uid="uid://e7mc1aklgqih" path="res://board.tscn" id="3_a4dad"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_lr4ku")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_l5uu6")
+
+[node name="Overlay" parent="." instance=ExtResource("2_5tomt")]
+
+[node name="Board" parent="." instance=ExtResource("3_a4dad")]
+position = Vector2(301, 242)
+
+[node name="GameOverTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="start_game" from="Overlay" to="." method="_on_overlay_start_game"]
+[connection signal="board_square_pressed" from="Board" to="." method="_on_board_board_square_pressed"]
+[connection signal="timeout" from="GameOverTimer" to="." method="_on_game_over_timer_timeout"]
